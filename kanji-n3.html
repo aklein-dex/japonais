@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- https://divtable.com/table-styler/ -->
+    <style>
+      table.comicGreen {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        border: 2px solid #4F7849;
+        background-color: #EEEEEE;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+      }
+      table.comicGreen td, table.comicGreen th {
+        border: 1px solid #4F7849;
+        padding: 3px 2px;
+      }
+      table.comicGreen tbody td {
+        font-size: 19px;
+        font-weight: bold;
+        color: #4F7849;
+      }
+      table.comicGreen tbody tr td:first-child
+      {
+        font-size: 39px;
+      }
+      table.comicGreen tbody tr td:last-child
+      {
+        text-align: left;
+      }
+      table.comicGreen tr:nth-child(even) {
+        background: #CEE0CC;
+      }
+      table.comicGreen thead {
+        background: #4F7849;
+        background: -moz-linear-gradient(top, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+        background: -webkit-linear-gradient(top, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+        background: linear-gradient(to bottom, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+        border-bottom: 1px solid #444444;
+      }
+      table.comicGreen thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #FFFFFF;
+        text-align: left;
+        border-left: 2px solid #D0E4F5;
+      }
+      table.comicGreen thead th:first-child {
+        border-left: none;
+      }
+    </style>
+  </head>
+  <body> <h1>日本語 - JLPT N3</h1>
+
+    <table id="kanjis" class="comicGreen">
+      <thead>
+        <tr>
+          <th>kanji</th>
+          <th>ON</th>
+          <th>KUN</th>
+          <th>trad</th>
+          <th>examples</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <br>
+
+    <table id="vocabs" class="comicGreen">
+      <thead>
+        <tr>
+          <th>word</th>
+          <th>translation</th>
+          <th>examples</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <br>
+
+    <table id="grammars" class="comicGreen">
+      <thead>
+        <tr>
+          <th>rule</th>
+          <th>meaning</th>
+          <th>sentences</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      const kanjis = [
+        {
+          kanji: '心',
+          lectureOn: 'しん',
+          lectureKun: 'こころ',
+          traduction: 'hearth, mind',
+          sentences: [
+            '安全のために 十分 気をつけていますので、ご安心(anshin)ください。',
+            '「ハツ」は、牛肉や豚肉の心臓(shinzou)です',
+            'このチームは、トムさんを中心(chuushin)に上手くまとまっています。',
+          ],
+        },
+        {
+          kanji: '体',
+          lectureOn: 'たい',
+          lectureKun: 'からだ',
+          traduction: 'body',
+          sentences: [
+            '受付で体温(taion)を測ってください。',
+            '日本語にはさまざまな文体(buntai)があります。',
+          ],
+        },
+        {
+          kanji: '服',
+          lectureOn: 'ふく',
+          lectureKun: '',
+          traduction: 'clothes',
+          sentences: [
+            '紳士服(shinshifuku)売り場は5階です',
+            'この薬は、1日3回、食後に服用(fukuyou)してください。',
+          ],
+        },
+        {
+          kanji: '今',
+          lectureOn: 'こん',
+          lectureKun: 'いま',
+          traduction: 'now',
+          sentences: [
+            '今、手が離せません。',
+            '今後(kondo)はじゅうぶん気をつけます。',
+          ],
+        },
+        {
+          kanji: '朝',
+          lectureOn: 'ちょう',
+          lectureKun: 'あさ',
+          traduction: 'morning',
+          sentences: [
+            '明日は朝早く起きなければなりません',
+            '今朝、30分ジョギングをしました。',
+          ],
+        },
+        {
+          kanji: '事',
+          lectureOn: 'じ',
+          lectureKun: 'ごと、こと',
+          traduction: 'things, matters',
+          sentences: [
+            'それは、事実(jijitsu)ですか。あなたの意見ですか。',
+            'あれは大事(daiji)な書類なのに、どこにあるかわかりません',
+          ],
+        },
+        {
+          kanji: '急',
+          lectureOn: 'きゅう',
+          lectureKun: 'いそ',
+          traduction: 'to hurry, emergency',
+          sentences: [
+            '子どもが熱を出したので、急いで帰らなければいけません。',
+            '急(kyu)な坂をのぼると、上に家があります。',
+          ],
+        },
+        {
+          kanji: '家',
+          lectureOn: 'か、け',
+          lectureKun: 'いえ、や、うち',
+          traduction: 'house',
+          sentences: [
+            '私の家',
+            '',
+          ],
+        },
+        {
+          kanji: '員',
+          lectureOn: 'イン',
+          lectureKun: '',
+          traduction: 'member',
+          sentences: [
+            '社員',
+            '会員',
+          ],
+        },
+        {
+          kanji: '以',
+          lectureOn: 'い',
+          lectureKun: '',
+          traduction: 'by means of; compared with',
+          sentences: [
+            '小学生以下は無料です。',
+            '以後',
+          ],
+        },
+        {
+          kanji: '切/着',
+          lectureOn: '',
+          lectureKun: 'き',
+          traduction: 'to cut/to wear',
+          sentences: [
+            '切る/着る 大切、到(とう)着',
+            '',
+          ],
+        },
+        {
+          kanji: '少',
+          lectureOn: 'しょう',
+          lectureKun: 'すく(ない); すこ(し)',
+          traduction: 'little',
+          sentences: [
+            'この会社は休みが少ないです',
+            '頭が少し痛いです。',
+          ],
+        },
+        {
+          kanji: '多',
+          lectureOn: 'た',
+          lectureKun: 'おお(い)',
+          traduction: 'many, mucg',
+          sentences: [
+            '今は雨の多い季節です。',
+            '',
+          ],
+        },
+        {
+          kanji: '答',
+          lectureOn: 'とう',
+          lectureKun: 'こた(える)',
+          traduction: '',
+          sentences: [
+            'アンケートの回答',
+            'ご質問にお答えします。',
+          ],
+        },
+        {
+          kanji: '使',
+          lectureOn: '',
+          lectureKun: '',
+          traduction: '',
+          sentences: [
+            '使う',
+            '',
+          ],
+        },
+        {
+          kanji: '元',
+          lectureOn: '',
+          lectureKun: '',
+          traduction: '',
+          sentences: [
+            '元気',
+            '',
+          ],
+        },
+        {
+          kanji: '作',
+          lectureOn: '',
+          lectureKun: '',
+          traduction: '',
+          sentences: [
+            '作る',
+            '作物',
+          ],
+        },
+        {
+          kanji: '研',
+          lectureOn: 'けん',
+          lectureKun: 'と(ぐ)',
+          traduction: 'to polish, study',
+          sentences: [
+            '私は大学で日本の政治を研究しています。',
+            '',
+          ],
+        },
+        {
+          kanji: '物',
+          lectureOn: 'ぶつ',
+          lectureKun: 'もの',
+          traduction: 'thing',
+          sentences: [
+            'スーパーに買い物に行きました。',
+            '',
+          ],
+        },
+        {
+          kanji: '質',
+          lectureOn: 'しつ',
+          lectureKun: '',
+          traduction: 'quality, matter',
+          sentences: [
+            '何か質問はありますか。',
+            'あのホテルはサービスの質がいいです。',
+          ],
+        },
+        {
+          kanji: '用',
+          lectureOn: 'よう',
+          lectureKun: '',
+          traduction: '',
+          sentences: [
+            '使用、用事',
+            '',
+          ],
+        },
+        {
+          kanji: '室',
+          lectureOn: 'しつ',
+          lectureKun: '',
+          traduction: '',
+          sentences: [
+            '教室、室内・室外',
+            '',
+          ],
+        },
+        {
+          kanji: '外',
+          lectureOn: 'がい',
+          lectureKun: 'そと',
+          traduction: 'outside',
+          sentences: [
+            '今日は天気がいいから、外で遊ぼう',
+            '',
+          ],
+        },
+        {
+          kanji: '注',
+          lectureOn: 'ちゅう',
+          lectureKun: 'そそ(ぐ)',
+          traduction: 'to pour, to shed',
+          sentences: [
+            '居酒屋で、最初にビールを注文(chuumon)する。',
+            'グラスにビールを注ぐ。',
+          ],
+        },
+        {
+          kanji: '意',
+          lectureOn: 'い',
+          lectureKun: '',
+          traduction: 'mind, meaning',
+          sentences: [
+            '開くドアにご注意(chuui)ください。',
+            'このことばは、どういう意味(imi)ですか。',
+          ],
+        },
+        {
+          kanji: '運',
+          lectureOn: 'うん',
+          lectureKun: 'はこ(ぶ)',
+          traduction: 'transport, luck',
+          sentences: [
+            '健康のために、毎日運動するようにしています。',
+            'この料理をテーブルに運(hako)んでください。',
+          ],
+        },
+      ];
+
+       const vocabs = [
+        {
+          word: '',
+          translation: '',
+          sentences: [],
+        },
+        {
+          word: 'ふだん',
+          translation: 'usually',
+          sentences: [
+            'ふだんは7時に起きますが、今日は9時に起きました。',
+            '私はふだん電車で通勤しています。'
+          ],
+        },
+        {
+          word: '得　とく',
+          translation: 'profit, benefit',
+          sentences: [
+            '新しく顧客を見つけるより、今の顧客をはなさないほうが得だ。',
+            '割引券を持っていたので300円得をした。'
+          ],
+        },
+        {
+          word: '損 そん',
+          translation: 'loss, disadvantage',
+          sentences: [
+            'この取り引きで大損をした。',
+            '株で50万円損をした。'
+          ],
+        },
+        {
+          word: '種類 しゅるい',
+          translation: 'type',
+          sentences: [],
+        },
+        {
+          word: '扱 (あつか)う',
+          translation: 'handle',
+          sentences: [],
+        },
+        {
+          word: '存在(そんざい)',
+          translation: 'existence',
+          sentences: [],
+        },
+        {
+          word: 'さまざま(な)',
+          translation: 'various, diverse',
+          sentences: [],
+        },
+        {
+          word: '譲る ゆずる',
+          translation: 'to give',
+          sentences: [
+            '若者はお年寄りに席を譲った。',
+          ],
+        },
+        {
+          word: '見かける',
+          translation: 'see, catch sight of happened to see',
+          sentences: [
+            '最近、スマホを見ながら歩いている人をよく見かけます。',
+          ],
+        },
+        {
+          word: '勇気 ゆうき',
+          translation: 'courage',
+          sentences: [
+            'たくさんの人の前で外国語を話すのは勇気がいります。',
+          ],
+        },
+        {
+          word: '~に悩(なや)む/悩まされる',
+          translation: 'suffers from',
+          sentences: [
+            '',
+          ],
+        },
+        {
+          word: '仕組み しくみ',
+          translation: 'system; structure; mechanism',
+          sentences: [
+            '体/社会 の仕組みについて学ぶ。',
+            'カメラの仕組みを調べる。'
+          ],
+        },
+        {
+          word: '原因 げんいん',
+          translation: 'cause',
+          sentences: [
+            '今、警察が事故の原因を調べています。',
+            'エンジン故障の原因がわかりません。'
+          ],
+        },
+        {
+          word: '含む ふくむ',
+          translation: 'contain, include',
+          sentences: [
+            'レモンはビタミンCを多く含んでいます。'
+          ],
+        },
+        {
+          word: 'おかげで、おかげさまで',
+          translation: 'reason',
+          sentences: [
+            ''
+          ],
+        },
+        {
+          word: '汗',
+          translation: 'sweat',
+          sentences: [
+            '汗をかく'
+          ],
+        },
+        {
+          word: '快適(な)',
+          translation: 'comfortable',
+          sentences: [
+            ''
+          ],
+        },
+        {
+          word: '結果',
+          translation: 'result',
+          sentences: [
+            ''
+          ],
+        },
+        {
+          word: '働く',
+          translation: 'to work',
+          sentences: [
+            ''
+          ],
+        },
+        {
+          word: '過ごす',
+          translation: 'spend time (live in)',
+          sentences: [
+            ''
+          ],
+        },
+        {
+          word: 'さらに',
+          translation: 'Furthermore, in addition',
+          sentences: [
+            ''
+          ],
+        },
+        {
+          word: '調節する / 調整する',
+          translation: 'regulate/adjust',
+          sentences: [
+            ''
+          ],
+        },
+        {
+          word: 'さっそく',
+          translation: 'at once, right away',
+          sentences: [
+            '新しいレストランができたので、さっそく行ってみた。',
+            'ボーナスをもらったので、さっそく新しいガジェットを買った。',
+          ],
+        }, 
+        {
+          word: '落ち着く おちつく',
+          translation: 'keep calm; settle (down); quiet, unobtrusive',
+          sentences: [
+            'あわてないで、落ち着いて話してください。',
+            '私は、落ち着いた色の服が好きです。'
+          ],
+        }, 
+        {
+          word: '期待 きたい',
+          translation: 'expectation',
+          sentences: [
+            'たくさんの人が大阪選手の活躍を期待している。',
+            '親の期待が大きすぎると、子どもはプレッシャーを感じるかもしれない。',
+          ],
+        },
+        {
+          word: 'どうでもいい',
+          translation: 'It doesn\'t matter. I don\'t care. Whatever',
+          sentences: [
+            '私にとって、勝つか負けるかはどうでもいいことです',
+            'どうでもいい電話ばかりかかってきて、仕事にならない!'
+          ],
+        }, 
+        {
+          word: '楽しむ たのしむ',
+          translation: 'to enjoy',
+          sentences: [
+            '久しぶりに一人の時間を楽しんだ。',
+          ],
+        }, 
+      ];
+
+      const grammars = [
+        {
+          rule: '',
+          meaning: '',
+          sentences: [],
+        },
+        {
+          rule: 'AによってB',
+          meaning: 'if A Changes, B also changes in response',
+          sentences: [
+            '料金は、荷物の大きさや重さによって変わります。',
+            'それぞれの場面によって、着る服が違います。',
+          ],
+        },
+        {
+          rule: '~ておく',
+          meaning: 'in preparation for something',
+          sentences: [
+            '週末、ピクニックに行きます。弁当を作っておきます。',
+            '車に乗る前にこの薬を飲んでおけば、車酔いしなくなります。',
+          ],
+        },
+        {
+          rule: '~なくてもいい',
+          meaning: 'need not do',
+          sentences: [
+            '明日は土曜日だから、早く起きなくてもいい。',
+            '急がなくてもいいので、間違いがないようにしてください。',
+          ],
+        },
+        {
+          rule: '~てしまう',
+          meaning: 'doing something completely / sense of regret',
+          sentences: [
+            '晩ご飯の前に宿題をやってしまいます。',
+            'パスポートをなくしてしまいました。',
+          ],
+        },
+        {
+          rule: '~ようになる',
+          meaning: '',
+          sentences: [],
+        },
+        {
+          rule: '~につれて...',
+          meaning: '',
+          sentences: [],
+        },
+        {
+          rule: '~のまま',
+          meaning: '',
+          sentences: [],
+        },
+        {
+          rule: '~う とする',
+          meaning: 'try to ~(do someshing); just as I was about to',
+          sentences: [
+            '家を出ようとしたとき、電話がかかってきた。',
+          ],
+        },
+        {
+          rule: '~てほしい',
+          meaning: 'I want somebody to ...',
+          sentences: [
+            '(私は)両親 長生(ながい)きしてほしいです。',
+            '私は、みんなにもっと日本語を勉強してほしいです。',
+          ],
+        },
+        {
+          rule: '~てくる/~ている/~ていく',
+          meaning: 'past,now,future',
+          sentences: [],
+        },
+        {
+          rule: '~ようと決(き)める',
+          meaning: '',
+          sentences: [],
+        },
+        {
+          rule: 'にくい',
+          meaning: 'difficult',
+          sentences: [
+            '雨の日は、洗濯物が乾きにくいです。'
+          ],
+        },
+        {
+          rule: '~やすい',
+          meaning: '',
+          sentences: [],
+        },
+        {
+          rule: '~そうだ',
+          meaning: 'it seems',
+          sentences: [
+            'このアーティストは人気が出そうです。'
+          ],
+        },
+      ]
+      // document.getElementById('kanjilist').innerHTML = kanjis[0].kanji;
+      const tbodyRef = document.getElementById('kanjis').getElementsByTagName('tbody')[0];
+      kanjis.forEach((kanji) => {
+        const newRow = tbodyRef.insertRow();
+        let newCell = newRow.insertCell();
+        let newText = document.createTextNode(kanji.kanji);
+        newCell.appendChild(newText);
+
+        newCell = newRow.insertCell();
+        newText = document.createTextNode(kanji.lectureOn);
+        newCell.appendChild(newText);
+
+        newCell = newRow.insertCell();
+        newText = document.createTextNode(kanji.lectureKun);
+        newCell.appendChild(newText);
+        
+        newCell = newRow.insertCell();
+        newText = document.createTextNode(kanji.traduction);
+        newCell.appendChild(newText);
+
+        newCell = newRow.insertCell();
+        kanji.sentences.forEach((sentence) => {
+          newText = document.createTextNode(sentence);
+          newCell.appendChild(newText);
+          newCell.appendChild(document.createElement('br'));
+        });
+      });
+      
+      const bodyVocab = document.getElementById('vocabs').getElementsByTagName('tbody')[0];
+      vocabs.forEach((vocab) => {
+        const newRow = bodyVocab.insertRow();
+        let newCell = newRow.insertCell();
+        let newText = document.createTextNode(vocab.word);
+        newCell.appendChild(newText);
+
+        newCell = newRow.insertCell();
+        newText = document.createTextNode(vocab.translation);
+        newCell.appendChild(newText);
+
+        newCell = newRow.insertCell();
+        vocab.sentences.forEach((sentence) => {
+          newText = document.createTextNode(sentence);
+          newCell.appendChild(newText);
+          newCell.appendChild(document.createElement('br'));
+        });
+      });
+
+      const bodyGram = document.getElementById('grammars').getElementsByTagName('tbody')[0];
+      grammars.forEach((grammar) => {
+        const newRow = bodyGram.insertRow();
+        let newCell = newRow.insertCell();
+        let newText = document.createTextNode(grammar.rule);
+        newCell.appendChild(newText);
+
+        newCell = newRow.insertCell();
+        newText = document.createTextNode(grammar.meaning);
+        newCell.appendChild(newText);
+
+        newCell = newRow.insertCell();
+        grammar.sentences.forEach((sentence) => {
+          newText = document.createTextNode(sentence);
+          newCell.appendChild(newText);
+          newCell.appendChild(document.createElement('br'));
+        });
+      });
+
+    </script>
+  </body>
+</html>
