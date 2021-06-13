@@ -6,66 +6,53 @@
 			color: #F21D1D;
 		}
 		div.blueTable {
-  border: 1px solid #1C6EA4;
-  background-color: #EEEEEE;
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-}
-.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
-  border: 1px solid #AAAAAA;
-  padding: 3px 2px;
-}
-.divTable.blueTable .divTableBody .divTableCell {
-  font-size: 13px;
-}
-.divTable.blueTable .divTableRow:nth-child(even) {
-  background: #D0E4F5;
-}
-.divTable.blueTable .divTableHeading {
-  background: #1C6EA4;
-  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  border-bottom: 2px solid #444444;
-}
-.divTable.blueTable .divTableHeading .divTableHead {
-  font-size: 15px;
-  font-weight: bold;
-  color: #FFFFFF;
-  border-left: 2px solid #D0E4F5;
-}
-.divTable.blueTable .divTableHeading .divTableHead:first-child {
-  border-left: none;
-}
+		  border: 1px solid #1C6EA4;
+		  background-color: #EEEEEE;
+		  width: 100%;
+		  text-align: left;
+		  border-collapse: collapse;
+		}
+		.divTable.blueTable .divRule,.divTable.blueTable .divSentence, .divTable.blueTable .divTableHead {
+		  border: 1px solid #AAAAAA;
+		  padding: 3px 2px;
+		}
+		
+		.divTable.blueTable .divRule {
+			font-size: 24px;
+		}
+		
+		.divTable.blueTable .divTableBody .divSentence {
+		  font-size: 19px;
+		}
+		.divTable.blueTable .divTableRow:nth-child(even) {
+		  background: #D0E4F5;
+		}
+		.divTable.blueTable .divTableHeading {
+		  background: #1C6EA4;
+		  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+		  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+		  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+		  border-bottom: 2px solid #444444;
+		}
+		.divTable.blueTable .divTableHeading .divTableHead {
+		  font-size: 15px;
+		  font-weight: bold;
+		  color: #FFFFFF;
+		  border-left: 2px solid #D0E4F5;
+		}
+		.divTable.blueTable .divTableHeading .divTableHead:first-child {
+		  border-left: none;
+		}
 
-.blueTable .tableFootStyle {
-  font-size: 14px;
-}
-.blueTable .tableFootStyle .links {
-	 text-align: right;
-}
-.blueTable .tableFootStyle .links a{
-  display: inline-block;
-  background: #1C6EA4;
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-.blueTable.outerTableFooter {
-  border-top: none;
-}
-.blueTable.outerTableFooter .tableFootStyle {
-  padding: 3px 5px; 
-}
-/* DivTable.com */
-.divTable{ display: table; }
-.divTableRow { display: table-row; }
-.divTableHeading { display: table-header-group;}
-.divTableCell, .divTableHead { display: table-cell;}
-.divTableHeading { display: table-header-group;}
-.divTableFoot { display: table-footer-group;}
-.divTableBody { display: table-row-group;}
+		
+		/* DivTable.com */
+		.divTable{ display: table; }
+		.divTableRow { display: table-row; }
+		.divTableHeading { display: table-header-group;}
+		.divRule, .divSentence, .divTableHead { display: table-cell;}
+		.divTableHeading { display: table-header-group;}
+		.divTableFoot { display: table-footer-group;}
+		.divTableBody { display: table-row-group;}
 </style>
   </head>
   <body>
@@ -83,17 +70,35 @@
       const rules = [
         {
           rule: '～うちに．．．',
-          sentence: '日本にいる<span class="rule">うちに</span>一度富士山に登ってみたい。',
+          sentences: [
+			'日本にいる<span class="rule">うちに</span>一度富士山に登ってみたい。'
+		  ],
         },
 		{
           rule: '～間．．．/～間に．．．',
-          sentence: '日本にいる<span class="rule">うちに</span>一度富士山に登ってみたい。',
+          sentences: [
+			'お母さんが昼寝をしている<span class="rule">間</span>、子供たちはテレビを見ていた。',
+			'お母さんが昼寝をしている<span class="rule">間に</span>、子供たちは遊びに出かけた。',
+		  ]
+        },
+		{
+          rule: '～てからでないと．．．/～てからでなければ．．．',
+          sentences: [
+			'運転免許を取っ<span class="rule">てからでなければ</span>車を運転してはいけません。'
+		  ],
+        },
+		{
+          rule: '～ところだ．．．/～ところ（+助詞）．．．',
+          sentences: [
+			'ロケットは間もなく飛び立つ<span class="rule">ところです</span>。緊張の瞬間です。',
+			'試験中、となりの人の答えを見ている<span class="rule">ところを</span>先生に注意された。',
+			'楽しみにしていたテレビドラマが始まった<span class="rule">ところで</span>電話が鳴った。',
+		  ],
         },
       ];
 	  const rulesDiv = document.getElementById("rules");
 	  rules.forEach((rule) => {
-		rulesDiv.innerHTML += 
-              "<div class=\"divTableRow\"><div class=\"divTableCell\">" + rule.rule + "</div><div class=\"divTableCell\">" + rule. sentence + "</div></div>";
+		rulesDiv.innerHTML += "<div class=\"divTableRow\"><div class=\"divRule\">" + rule.rule + "</div><div class=\"divSentence\">" + rule.sentences.join('<br>') + "</div></div>";
 	  });
 	  
     </script>
